@@ -16,3 +16,30 @@ h1{
 .carrusel-caption p {
     color: whitesmoke;
 }
+
+.rowposter{
+    display: flex;
+    overflow-y: hidden;
+    overflow-x: scroll;
+
+}
+
+.rowimg{
+    
+    object-fit: contain;
+    box-sizing: content-box;
+    transition: transform 400ms;
+}
+
+.rowimg:hover{
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+.largeposter{
+    max-height: 400px;
+}
+
+.rowposter::-webkit-scrollbar{
+    display: none;
+}

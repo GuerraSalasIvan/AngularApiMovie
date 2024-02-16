@@ -1,3 +1,4 @@
+<!-- CARRUSEL -->
 <div class='contain-fluid'>
     <div id="carouselExampleCaptions" class="carousel slide">
         <div class="carousel-inner">
@@ -19,5 +20,20 @@
     </button>
     </div>
 </div>
+<!-- CARRUSEL -->
 
 
+<!-- CARRUSEL -->
+<div class="container mt-3 p-2">
+    <div class="row">
+        <h5 class="text-white"> Trending Pelis</h5>
+        <div class="rowposter">
+            <ng-container *ngFor="let t of trendingPelis">
+                <img src="https://image.tmdb.org/t/p/original/{{ t.poster_path }}" class="rowimg largeposter">
+            </ng-container>
+            
+
+        </div>
+    </div>
+</div>
+<!-- CARRUSEL -->

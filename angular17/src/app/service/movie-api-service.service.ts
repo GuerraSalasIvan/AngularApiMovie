@@ -15,4 +15,10 @@ export class MovieApiServiceService {
   bannerApiData():Observable<any>{
     return this.http.get(`${this.apiUrl}/trending/all/week?api_key=${this.apiKey}`)
   }
+
+  trending():Observable<any>{
+    return this.http.get(`${this.apiUrl}/trending/movie/day?api_key=${this.apiKey}`)
+  }
+
+
 }
