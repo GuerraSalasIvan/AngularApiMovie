@@ -7,12 +7,14 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { SearchComponent } from './search/search.component';
 import { MovieApiServiceService } from './service/movie-api-service.service';
+import { DetallesComponent } from './detalles/detalles.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    SearchComponent
+    SearchComponent,
+    DetallesComponent
   ],
   imports: [
     BrowserModule,
