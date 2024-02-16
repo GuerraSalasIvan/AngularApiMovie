@@ -1,5 +1,5 @@
-#carrusel{
-    height: 800px;
+.carrusel-inner{
+    height: 600px;
 }
 
 .carrusel-inner .carrusel-item img{
@@ -7,15 +7,12 @@
     object-fit: cover;
 }
 
-.carrusel-caption h2{
+h1{
     color: #E50814;
     font-weight: bold;
+    font-size: 35px;
 }
 
 .carrusel-caption p {
     color: whitesmoke;
-}
-
-.cuerpo{
-    background-color: black;
 }
