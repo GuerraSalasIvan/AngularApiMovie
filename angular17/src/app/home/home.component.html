@@ -29,7 +29,9 @@
         <h5 class="text-white"> Trending Pelis</h5>
         <div class="rowposter">
             <ng-container *ngFor="let t of trendingPelis">
-                <img src="https://image.tmdb.org/t/p/original/{{ t.poster_path }}" class="rowimg largeposter">
+                <img src="https://image.tmdb.org/t/p/original/{{ t.poster_path }}" 
+                class="rowimg largeposter"
+                [routerLink]="['/movie',t.id]">
             </ng-container>
             
 
