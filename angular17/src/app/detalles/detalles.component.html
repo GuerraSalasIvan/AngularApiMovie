@@ -1,2 +1,21 @@
+<div class="container">
+  <div class="movie-details">
+    <img src="https://image.tmdb.org/t/p/original/{{ getDetallesPeli.backdrop_path }}" class="d-block w-100" alt="...">
+    <h1 class="movie-title">{{ getDetallesPeli.title }}</h1>
+    <p class="movie-description">{{ getDetallesPeli.overview }}</p>
+    <div class="movie-info">
+      <p><strong>Fecha de Lanzamiento:</strong> {{ getDetallesPeli.release_date }}</p>
+      <p><strong>Calificación:</strong> {{ getDetallesPeli.vote_average }} </p>
+      <p><strong>Géneros:</strong>
+        <span class="movie-genres">
+          <!-- Iterar sobre el array de géneros y mostrar los nombres -->
+          <ng-container *ngFor="let genre of getDetallesPeli.genres; let last = last">
+            {{ genre.name }}{{ last ? '.' : ', ' }}
+          </ng-container>
+        </span>
+      </p>
+    </div>
+    <button class="btn btn-primary">Ver Ahora</button>
+  </div>
+</div>
 
-<p>{{getDetallesPeli.title}}</p>
