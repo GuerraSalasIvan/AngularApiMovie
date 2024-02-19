@@ -1,0 +1,36 @@
+<form [formGroup]="myForm">
+    <div>
+        <label>Nombre</label>
+        <input formControlName="nombre" type="text"/>
+        <p *ngIf="myForm.get('nombre')!.touched && myForm.get('nombre')!.hasError('required')">El campo es obligatorio</p>
+    </div>
+
+    <div>
+        <label>Apellidos</label>
+        <input formControlName="apellidos" type="text"/>
+        <p *ngIf="myForm.get('apellidos')!.touched && myForm.get('apellidos')!.hasError('required')">El campo es obligatorio</p>
+    </div>
+
+    <div>
+        <label>Edad</label>
+        <input formControlName="edad" type="number"/>
+        <p *ngIf="myForm.get('edad')!.touched && myForm.get('edad')!.hasError('required')">El campo es obligatorio</p>
+        <p *ngIf="myForm.get('edad')!.hasError('min')">La edad no puede ser menor a 0</p>
+        <p *ngIf="myForm.get('edad')!.hasError('max')">La edad no puede ser mayor a 105</p>
+
+    </div>
+
+    <div>
+        <label>Nombre de usuario</label>
+        <input formControlName="user" type="text"/>
+        <p *ngIf="myForm.get('user')!.touched && myForm.get('user')!.hasError('required')">El campo es obligatorio</p>
+    </div>
+
+    <div>
+        <label>Contraseña</label>
+        <input formControlName="contraseña" type="password"/>
+        <p *ngIf="myForm.get('contraseña')!.touched && myForm.get('contraseña')!.hasError('required')">El campo es obligatorio</p>
+    </div>
+
+    <button (click)="saveData()">Guardar</button>
+</form>

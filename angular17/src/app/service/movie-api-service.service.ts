@@ -21,7 +21,7 @@ export class MovieApiServiceService {
   }
 
   buscarPeliData(data:any):Observable<any>{
-    return this.http.get(`${this.apiUrl}/search/movie?api_key=${this.apiKey}&query=${data.result}`)
+    return this.http.get(`${this.apiUrl}/search/movie?api_key=${this.apiKey}&query=${data.peliNombre}`)
   }  
 
   obtenerPeli(data:any):Observable<any>{

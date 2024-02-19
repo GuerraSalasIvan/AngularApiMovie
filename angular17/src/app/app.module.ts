@@ -9,13 +9,15 @@ import { SearchComponent } from './search/search.component';
 import { MovieApiServiceService } from './service/movie-api-service.service';
 import { DetallesComponent } from './detalles/detalles.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { RegistroComponent } from './registro/registro.component';
  
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     SearchComponent,
-    DetallesComponent
+    DetallesComponent,
+    RegistroComponent
   ],
   imports: [
     BrowserModule,
