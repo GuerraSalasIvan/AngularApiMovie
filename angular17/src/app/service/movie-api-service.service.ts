@@ -28,4 +28,12 @@ export class MovieApiServiceService {
     return this.http.get(`${this.apiUrl}/movie/${data}?api_key=${this.apiKey}`)
   }
 
+  obtenerVideoPeli(data:any):Observable<any>{
+    return this.http.get(`${this.apiUrl}/movie/${data}/videos?api_key=${this.apiKey}`)
+  }
+  
+  obtenerRepartoPeli(data:any):Observable<any>{
+    return this.http.get(`${this.apiUrl}/movie/${data}/credits?api_key=${this.apiKey}`)
+
+  }
 }
