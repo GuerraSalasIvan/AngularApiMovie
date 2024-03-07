@@ -10,6 +10,7 @@ export class MovieApiServiceService {
   constructor(private http:HttpClient) { }
 
   apiUrl = 'https://api.themoviedb.org/3'
+  miApi = 'http://127.0.0.1:8080/api/v1/registrar/usuario'
   apiKey = '665eddc29536d1ffc4e5fdace47ae8c7'
 
   bannerApiData():Observable<any>{
@@ -34,6 +35,10 @@ export class MovieApiServiceService {
   
   obtenerRepartoPeli(data:any):Observable<any>{
     return this.http.get(`${this.apiUrl}/movie/${data}/credits?api_key=${this.apiKey}`)
+  }
 
+  //Registro 
+  registrarUsuario(datosRegistro: any): Observable<any> {
+    return this.http.post<any>(this.miApi, datosRegistro)
   }
 }

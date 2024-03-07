@@ -1,36 +1,35 @@
-<form [formGroup]="myForm">
-    <div>
-        <label>Nombre</label>
-        <input formControlName="nombre" type="text"/>
-        <p *ngIf="myForm.get('nombre')!.touched && myForm.get('nombre')!.hasError('required')">El campo es obligatorio</p>
+<form [formGroup]="myForm" class="netflix-form">
+    <div class="form-group">
+        <label for="nombre">Nombre</label>
+        <input formControlName="nombre" type="text" class="form-control"/>
+        <p *ngIf="myForm.get('nombre')!.touched && myForm.get('nombre')!.hasError('required')" class="error-message">El campo es obligatorio</p>
     </div>
 
-    <div>
-        <label>Apellidos</label>
-        <input formControlName="apellidos" type="text"/>
-        <p *ngIf="myForm.get('apellidos')!.touched && myForm.get('apellidos')!.hasError('required')">El campo es obligatorio</p>
+    <div class="form-group">
+        <label for="apellidos">Apellidos</label>
+        <input formControlName="apellidos" type="text" class="form-control"/>
+        <p *ngIf="myForm.get('apellidos')!.touched && myForm.get('apellidos')!.hasError('required')" class="error-message">El campo es obligatorio</p>
     </div>
 
-    <div>
-        <label>Edad</label>
-        <input formControlName="edad" type="number"/>
-        <p *ngIf="myForm.get('edad')!.touched && myForm.get('edad')!.hasError('required')">El campo es obligatorio</p>
-        <p *ngIf="myForm.get('edad')!.hasError('min')">La edad no puede ser menor a 0</p>
-        <p *ngIf="myForm.get('edad')!.hasError('max')">La edad no puede ser mayor a 105</p>
-
+    <div class="form-group">
+        <label for="edad">Edad</label>
+        <input formControlName="edad" type="number" class="form-control"/>
+        <p *ngIf="myForm.get('edad')!.touched && myForm.get('edad')!.hasError('required')" class="error-message">El campo es obligatorio</p>
+        <p *ngIf="myForm.get('edad')!.hasError('min')" class="error-message">La edad no puede ser menor a 0</p>
+        <p *ngIf="myForm.get('edad')!.hasError('max')" class="error-message">La edad no puede ser mayor a 105</p>
     </div>
 
-    <div>
-        <label>Nombre de usuario</label>
-        <input formControlName="user" type="text"/>
-        <p *ngIf="myForm.get('user')!.touched && myForm.get('user')!.hasError('required')">El campo es obligatorio</p>
+    <div class="form-group">
+        <label for="user">Nombre de usuario</label>
+        <input formControlName="user" type="text" class="form-control"/>
+        <p *ngIf="myForm.get('user')!.touched && myForm.get('user')!.hasError('required')" class="error-message">El campo es obligatorio</p>
     </div>
 
-    <div>
-        <label>Contraseña</label>
-        <input formControlName="contraseña" type="password"/>
-        <p *ngIf="myForm.get('contraseña')!.touched && myForm.get('contraseña')!.hasError('required')">El campo es obligatorio</p>
+    <div class="form-group">
+        <label for="contraseña">Contraseña</label>
+        <input formControlName="contraseña" type="password" class="form-control"/>
+        <p *ngIf="myForm.get('contraseña')!.touched && myForm.get('contraseña')!.hasError('required')" class="error-message">El campo es obligatorio</p>
     </div>
 
-    <button (click)="saveData()">Guardar</button>
+    <button (click)="saveData()" class="btn btn-red">Registro</button>
 </form>

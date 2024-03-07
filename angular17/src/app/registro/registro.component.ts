@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
+
 export class Usuario{
   constructor(
     public nombre?: string,
@@ -10,9 +11,6 @@ export class Usuario{
     public contraseña?: string,
   ){ }
 }
-
-
-
 
 @Component({
   selector: 'app-registro',
@@ -36,6 +34,8 @@ export class RegistroComponent implements OnInit {
   }
 
   ngOnInit(){ }
+
+  
 
   saveData() {
     console.log(this.myForm.value.nombre);
