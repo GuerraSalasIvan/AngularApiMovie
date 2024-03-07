@@ -1,31 +1,21 @@
-import { Component } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+// search.component.ts
+import { Component, OnInit } from '@angular/core';
 import { MovieApiServiceService } from '../service/movie-api-service.service';
 
 @Component({
   selector: 'app-search',
   templateUrl: './search.component.html',
-  styleUrl: './search.component.scss'
+  styleUrls: ['./search.component.scss']
 })
-export class SearchComponent {
+export class SearchComponent implements OnInit {
+  buscadorResultados: any;
 
-  constructor(private service:MovieApiServiceService) { }
+  constructor(private service: MovieApiServiceService) { }
 
-  ngOnInit():void { }
-
-
-  buscadorResultados:any;
-  buscador = new FormGroup({
-    'peliNombre':new FormControl(null)
-  })
-
-  submitForm(){
-    console.log(this.buscador.value,'buscador#')
-    this.service.buscarPeliData(this.buscador.value).subscribe((result) => {
-      console.log(result,'buscador#');
-      this.buscadorResultados = result.results;
-
-    })
+  ngOnInit() {
+    this.service.getSearchResultEmitter().subscribe((results) => {
+      this.buscadorResultados = results;
+    });
   }
-
 }
+

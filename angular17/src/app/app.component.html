@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#"><h1>APICINE</h1></a>
+  <div class="container-fluid pb-1 pt-1">
+    <a class="navbar-brand" href="#"><h1>MOVIEFLIX</h1></a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -9,15 +9,32 @@
         <li class="nav-item">
           <a class="nav-link" aria-current="page" href="">Home</a>
         </li>
+        <!--
         <li class="nav-item">
-          <a class="nav-link" href="search">Search</a>
+          <a class="nav-link" [routerLink]="['/search']">search</a>
         </li>
+        -->
+        
         <li class="nav-item">
-          <a class="nav-link" href="registro">Registro</a>
+          <a class="nav-link" [routerLink]="['/registro']">Registro</a>
         </li>
       </ul>
+
+      <form [formGroup]="buscador" (ngSubmit)="submitForm()" class="ms-auto">
+  <div class="row align-items-center">
+    <div class="col-lg-6 col-md-6 col-sm-12">
+      <input type="text" class="form-control" formControlName="peliNombre" placeholder="Buscador ...">
+    </div>
+    <div class="col-lg-2 col-md-2 col-sm-12">
+      <button type="submit" class="btn btn-danger btn-md">Buscar</button>
+    </div>
+  </div>
+</form>
+
+
     </div>
   </div>
 </nav>
+
 
 <router-outlet></router-outlet>

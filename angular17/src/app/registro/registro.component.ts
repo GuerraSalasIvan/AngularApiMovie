@@ -1,43 +1,47 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { MovieApiServiceService } from '../service/movie-api-service.service';
 
-
-export class Usuario{
+export class Usuario {
   constructor(
     public nombre?: string,
     public apellidos?: string,
     public edad?: number,
-    public user?:string,
-    public contraseña?: string,
-  ){ }
+    public user?: string,
+    public password?: string,
+    public password2?: string,
+    public email?: string,
+    public rol?: string,
+    public sexo?: string,
+  ) {}
 }
 
 @Component({
   selector: 'app-registro',
   templateUrl: './registro.component.html',
-  styleUrl: './registro.component.scss'
+  styleUrls: ['./registro.component.scss']
 })
 export class RegistroComponent implements OnInit {
-
-  public myForm : FormGroup;
+  public myForm: FormGroup;
   public usuarios : Array<Usuario> = [];
 
-  constructor(public fb: FormBuilder){
+  constructor(public fb: FormBuilder, private apiService: MovieApiServiceService) {
     this.myForm = this.fb.group({
-        nombre: new FormControl('',Validators.required),
-        apellidos: new FormControl('', Validators.required),
-        edad: new FormControl('',[Validators.required, Validators.min(0), Validators.max(105)]),
-        user : new FormControl('',Validators.required),
-        contraseña: new FormControl('',Validators.required),
+      user: new FormControl('', Validators.required),
+      password: new FormControl('', Validators.required),
+      password2: new FormControl('', Validators.required),
+      email: new FormControl('', [Validators.required, Validators.email]),
+      rol: new FormControl('', Validators.required),
+      edad: new FormControl('', [Validators.required, Validators.min(0), Validators.max(105)]),
+      sexo: new FormControl('', Validators.required),
     });
-    
   }
 
-  ngOnInit(){ }
-
-  
+  ngOnInit() {}
+ 
 
   saveData() {
+    /*
     console.log(this.myForm.value.nombre);
     console.log(this.myForm.value.apellidos)
     console.log(this.myForm.value.edad)
@@ -47,6 +51,24 @@ export class RegistroComponent implements OnInit {
 
 
     this.usuarios.push(this.myForm.value);
-    this.myForm.reset();
+    this.myForm.reset(); 
+    */
+    if (this.myForm.valid) {
+      const nuevoUsuario: Usuario = this.myForm.value;
+  
+      this.apiService.crearUsuario(nuevoUsuario).subscribe(
+        (respuesta) => {
+          console.log('Usuario creado con éxito:', respuesta);
+          // Puedes mostrar un mensaje al usuario, redirigir, etc.
+          this.myForm.reset();
+        },
+        (error) => {
+          console.error('Error al crear usuario:', error);
+          // Puedes mostrar un mensaje de error al usuario
+        }
+      );
+    } else {
+      console.error('Formulario no válido. Revisa los campos.');
+    }
   }
 }
