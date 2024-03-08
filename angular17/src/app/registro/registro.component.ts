@@ -36,7 +36,6 @@ export class RegistroComponent implements OnInit {
   }
 
   ngOnInit() {}
- 
 
   saveData() {
     /*

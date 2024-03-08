@@ -9,7 +9,6 @@
       
       <p><strong>Géneros:</strong>
         <span class="movie-genres">
-          <!-- Iterar sobre el array de géneros y mostrar los nombres -->
           <ng-container *ngFor="let genre of getDetallesPeli.genres; let last = last">
             {{ genre.name }}{{ last ? '.' : ', ' }}
           </ng-container>
@@ -30,7 +29,6 @@
               <div class="col-lg-6">.
                 <img src="https://image.tmdb.org/t/p/original/{{ r.profile_path }}" class="d-block w-100" alt="...">
               </div>
-              
             </ng-template>
 
             <div class="col-lg-6">

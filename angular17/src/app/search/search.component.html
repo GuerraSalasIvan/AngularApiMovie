@@ -1,14 +1,20 @@
 <div class="container-fluid mt-5">
-    <!-- Otras secciones si las hay -->
     <div class="container mt-3 p-2">
         <div class="row">
             <h5 class="text-white"> Resultados búsqueda: </h5>
             <div class="row rowposter">
                 <ng-container *ngFor="let r of buscadorResultados; let i = index">
                     <div class="col-lg-3 col-md-6 d-flex flex-column align-items-center">
-                        <img src="https://image.tmdb.org/t/p/original/{{ r.poster_path }}" 
-                            [routerLink]="['/movie', r.id]"
-                            class="rowimg largeposter">
+                        <ng-container *ngIf="!r.poster_path; else posterPorDefecto">
+                            <img src="https://dummyimage.com/300x450/4d4d4d/fff&text={{r.title}}" 
+                                [routerLink]="['/movie', r.id]"
+                                class="rowimg largeposter">
+                        </ng-container>
+                        <ng-template #posterPorDefecto>
+                            <img src="https://image.tmdb.org/t/p/original/{{ r.poster_path }}" 
+                                [routerLink]="['/movie', r.id]"
+                                class="rowimg largeposter">
+                        </ng-template>
                         <h6 class="text-white mt-2"> {{r.title}} </h6>
                     </div>
                 </ng-container>
@@ -16,6 +22,7 @@
         </div>
     </div>
 </div>
+
 
 
 
