@@ -1,4 +1,3 @@
-<!-- registro.component.html -->
 <form [formGroup]="myForm" class="netflix-form">
   <div class="form-group">
     <label for="username">Nombre de usuario</label>
@@ -28,8 +27,13 @@
 
   <div class="form-group">
     <label for="rol">Rol</label>
-    <input formControlName="rol" type="text" class="form-control"/>
+    <select formControlName="rol" class="form-control">
+      <option value="2">2</option>
+      <option value="3">3</option>
+    </select>
     <p *ngIf="myForm.get('rol')!.touched && myForm.get('rol')!.hasError('required')" class="error-message">El campo es obligatorio</p>
+    <p *ngIf="myForm.get('rol')!.hasError('min')" class="error-message">El rol no puede ser menor a 2</p>
+    <p *ngIf="myForm.get('rol')!.hasError('max')" class="error-message">El rol no puede ser mayor a 3</p>
   </div>
 
   <div class="form-group">
@@ -40,9 +44,12 @@
     <p *ngIf="myForm.get('edad')!.hasError('max')" class="error-message">La edad no puede ser mayor a 105</p>
   </div>
 
-  <div class="form-group">
+    <div class="form-group">
     <label for="sexo">Sexo</label>
-    <input formControlName="sexo" type="text" class="form-control"/>
+    <select formControlName="sexo" class="form-control">
+      <option value="masculino">Masculino</option>
+      <option value="femenino">Femenino</option>
+    </select>
     <p *ngIf="myForm.get('sexo')!.touched && myForm.get('sexo')!.hasError('required')" class="error-message">El campo es obligatorio</p>
   </div>
 
