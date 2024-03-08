@@ -4,15 +4,13 @@ import { MovieApiServiceService } from '../service/movie-api-service.service';
 
 export class Usuario {
   constructor(
-    public nombre?: string,
-    public apellidos?: string,
+    public username?: string,
     public edad?: number,
-    public user?: string,
-    public password?: string,
+    public password1?: string,
     public password2?: string,
-    public email?: string,
-    public rol?: string,
+    public rol?: number,
     public sexo?: string,
+    public email?: string,
   ) {}
 }
 
@@ -27,13 +25,13 @@ export class RegistroComponent implements OnInit {
 
   constructor(public fb: FormBuilder, private apiService: MovieApiServiceService) {
     this.myForm = this.fb.group({
-      user: new FormControl('', Validators.required),
-      password: new FormControl('', Validators.required),
+      username: new FormControl('', Validators.required),
+      password1: new FormControl('', Validators.required),
       password2: new FormControl('', Validators.required),
       email: new FormControl('', [Validators.required, Validators.email]),
       rol: new FormControl('', Validators.required),
-      edad: new FormControl('', [Validators.required, Validators.min(0), Validators.max(105)]),
       sexo: new FormControl('', Validators.required),
+      edad: new FormControl('', [Validators.required, Validators.min(0), Validators.max(105)]),
     });
   }
 
